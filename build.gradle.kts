@@ -6,6 +6,7 @@ plugins {
     id("gg.essential.loom") version "0.10.0.+"
     id("dev.architectury.architectury-pack200") version "0.1.3"
     id("com.github.johnrengelman.shadow") version "8.1.1"
+
 }
 
 //Constants:
@@ -63,6 +64,7 @@ repositories {
     maven("https://repo.spongepowered.org/maven/")
     // If you don't want to log in with your real minecraft account, remove this line
     maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
+    maven(url = "https://repo.essential.gg/repository/maven-public")
 }
 
 val shadowImpl: Configuration by configurations.creating {
@@ -84,6 +86,15 @@ dependencies {
     runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.1.2")
 
 }
+repositories {
+    maven(url = "https://repo.essential.gg/repository/maven-public")
+}
+
+dependencies {
+    compileOnly("gg.essential.elementa:elementa-core:1.16.5-2.3.0")
+}
+
+
 
 // Tasks:
 
@@ -143,4 +154,3 @@ tasks.shadowJar {
 }
 
 tasks.assemble.get().dependsOn(tasks.remapJar)
-

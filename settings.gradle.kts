@@ -23,4 +23,4 @@ plugins {
 }
 
 
-rootProject.name = "TryingArchLoom"
+rootProject.name = "examplemod"
